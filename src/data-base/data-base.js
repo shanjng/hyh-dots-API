@@ -13,7 +13,7 @@ const config = {
 
 var connection;
 function handleDisconnect() {
-    connection = mysql.createConnection(dbConfig);  // Recreate the connection, since the old one cannot be reused.
+    connection = mysql.createConnection(config);  // Recreate the connection, since the old one cannot be reused.
     connection.connect( function onConnect(err) {   // The server is either down
         if (err) {                     // or restarting (takes while sometimes).
             console.log('error when connecting to db:', err);
@@ -24,9 +24,9 @@ function handleDisconnect() {
     connection.on('error', function onError(err) {
         console.log('db error', err);
         if (err.code == 'PROTOCOL_CONNECTION_LOST') {   // Connection to the MySQL server is usually
-            handleDisconnect();                         // lost due to either server restart, or a
-        } else {                                        // connnection idle timeout (the wait_timeout
-            throw err;                                  // server variable configures this)
+            handleDisconnect();      // lost due to either server restart, or a
+        } else {                   // connnection idle timeout (the wait_timeout
+            throw err;                   // server variable configures this)
         }
     });
 }
