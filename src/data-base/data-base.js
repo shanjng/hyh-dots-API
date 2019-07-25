@@ -78,7 +78,6 @@ connection.on('error', function(err) {
         console.log("/!\\ Cannot establish a connection with the database. /!\\ ("+err.code+")");
         connection = reconnect(connection);
     }
-
 });
 
 module.exports = connection;
