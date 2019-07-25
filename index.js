@@ -13,6 +13,9 @@ app.use(express.static(__dirname + '/dist'));
 // app.get('/', function(req,res) { 
 //     res.sendFile(path.join(__dirname + '/dist/hyh/'));
 // });
+app.get('/', function(req, res){
+    res.send('Hello from Server');
+})
 
 app.use(cors()); // cross-origin resource sharing
 app.use(express.json());
