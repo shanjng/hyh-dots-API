@@ -8,7 +8,7 @@ var cors = require('cors');
 
 app.use(favicon(__dirname + '/favicon.ico'));
 
-app.get('/', function(req, res){
+app.get('/*', function(req, res){
     res.json({err: 'Unsupported GET request'})
 })
 
