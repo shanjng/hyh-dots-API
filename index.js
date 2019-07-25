@@ -8,13 +8,13 @@ var cors = require('cors');
 
 app.use(favicon(__dirname + '/hyhapi/favicon.ico'));
 
-app.use(express.static(__dirname + '/'));
+// app.use(express.static(__dirname + '/'));
 
 // app.get('/', function(req,res) { 
 //     res.sendFile(path.join(__dirname + '/dist/hyh/'));
 // });
 app.get('/', function(req, res){
-    res.send('Hello from Server');
+    throw new Error("Unsupported GET request")
 })
 
 app.use(cors()); // cross-origin resource sharing
