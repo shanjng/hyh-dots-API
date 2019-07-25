@@ -1,9 +1,12 @@
 // pulls in express library
 const express = require('express');
+const favicon = require('express-favicon');
 
 // instance of express made
 const app = express();
 var cors = require('cors');
+
+app.use(favicon(__dirname + '/dist/hyhproj/favicon.ico'));
 
 app.use(cors()); // cross-origin resource sharing
 app.use(express.json());
