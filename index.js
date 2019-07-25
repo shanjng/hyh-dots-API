@@ -6,7 +6,7 @@ const favicon = require('express-favicon');
 const app = express();
 var cors = require('cors');
 
-app.use(favicon(__dirname + '/dist/hyhproj/favicon.ico'));
+app.use(favicon(__dirname + '/dist/hyhapi/favicon.ico'));
 
 app.use(cors()); // cross-origin resource sharing
 app.use(express.json());
