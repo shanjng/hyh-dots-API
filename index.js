@@ -1,6 +1,6 @@
 // pulls in express library
 const express = require('express');
-const favicon = require('express-favicon');
+const favicon = require('serve-favicon');
 
 // instance of express made
 const app = express();
