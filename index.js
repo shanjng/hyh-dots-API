@@ -14,7 +14,7 @@ app.use(favicon(__dirname + '/favicon.ico'));
 //     res.sendFile(path.join(__dirname + '/dist/hyh/'));
 // });
 app.get('/', function(req, res){
-    throw new Error("Unsupported GET request")
+    res.json("Unsupported GET request")
 })
 
 app.use(cors()); // cross-origin resource sharing
