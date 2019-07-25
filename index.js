@@ -8,6 +8,8 @@ var cors = require('cors');
 
 app.use(favicon(__dirname + '/dist/hyhapi/favicon.ico'));
 
+app.use(express.static(__dirname + '/dist/hyhapi'));
+
 app.use(cors()); // cross-origin resource sharing
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
