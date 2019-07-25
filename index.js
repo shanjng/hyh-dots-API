@@ -6,7 +6,7 @@ const favicon = require('express-favicon');
 const app = express();
 var cors = require('cors');
 
-app.use(favicon(__dirname + '/hyhapi/favicon.ico'));
+app.use(favicon(__dirname + '/favicon.ico'));
 
 // app.use(express.static(__dirname + '/'));
 
