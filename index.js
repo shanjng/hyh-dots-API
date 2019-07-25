@@ -17,6 +17,10 @@ app.get('/', function(req, res){
     res.send('Hello from Server');
 })
 
+app.get('/favico.ico', (req, res) => {
+    res.sendStatus(404);
+});
+
 app.use(cors()); // cross-origin resource sharing
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
