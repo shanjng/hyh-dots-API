@@ -6,9 +6,9 @@ const favicon = require('express-favicon');
 const app = express();
 var cors = require('cors');
 
-app.use(favicon(__dirname + '/dist/hyhapi/favicon.ico'));
+app.use(favicon(__dirname + '/hyhapi/favicon.ico'));
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/'));
 
 // app.get('/', function(req,res) { 
 //     res.sendFile(path.join(__dirname + '/dist/hyh/'));
@@ -16,10 +16,6 @@ app.use(express.static(__dirname + '/dist'));
 app.get('/', function(req, res){
     res.send('Hello from Server');
 })
-
-app.get('/favico.ico', (req, res) => {
-    res.sendStatus(404);
-});
 
 app.use(cors()); // cross-origin resource sharing
 app.use(express.json());
