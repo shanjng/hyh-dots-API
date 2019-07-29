@@ -116,3 +116,5 @@ const db_config = {
   }
   
   handleDisconnect();
+
+  module.exports = connection
