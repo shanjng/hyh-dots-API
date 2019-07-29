@@ -8,7 +8,6 @@ router.get('/', (req,res) => {
 })
 
 router.post('/login', (req, res) => {
-    console.log("got into auth login")
     AuthService.prototype.login(req.body)
     .then(response =>
         res.send(response)

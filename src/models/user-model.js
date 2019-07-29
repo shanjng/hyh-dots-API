@@ -1,5 +1,5 @@
 fs = require("fs");
-mysqlConn = require("../data-base/data-base");
+pool = require("../data-base/data-base");
 
 module.exports = class User{
          
@@ -12,13 +12,17 @@ module.exports = class User{
 
     getAll() {
         return new Promise((resolve, reject) => {
-            mysqlConn.query("Select * from user", (err, res) => {
+            pool.getConnection((err, conn) => {
+              if (err) reject (err)
+              conn.query("Select * from user", (err, res) => {
+                conn.release()
                 if (err) {
                   reject(err)
                 } else {
                   resolve(res);
                 }
               });
+            })
         })
   }
 };
