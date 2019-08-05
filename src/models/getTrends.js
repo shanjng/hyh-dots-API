@@ -1,7 +1,5 @@
 const express = require("express");
 var client = require("../auth/twit-auth")
-var HttpClient = require("../auth/http-client")
-var httpclient = new HttpClient();
 
 var woeid_json = require("../../woeid");
 const riteKiteId = "52ea1fead1060e7298706ab83217f353239983c16c02";
@@ -43,7 +41,6 @@ function multiHashtagStats(hashtagsArr) {
 function singleHashtagStats(hashtag){
   const baseLink = "https://api.ritekit.com/v1/stats/multiple-hashtags?tags=";
   return baseLink + hashtag+"&client_id=" + riteKiteId;
-
 }
 //find the historical stats of engagement for a hashtag
 

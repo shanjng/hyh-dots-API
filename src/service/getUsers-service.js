@@ -5,7 +5,7 @@ module.exports = class userService {
     getVerifiedUsers(){
         return new Promise ((resolve, reject)=>{
             Users.prototype.getUsers().then(users =>{
-                console.log("users",users);
+                // console.log("users",users);
                 let verifiedUsers=[];
                 for (var i=0; i< users.length;i++){
                     if (users[i].verified){
