@@ -1,6 +1,7 @@
 const userService = require("./user-service");
 const User = require("../models/user-model")
 
+
 module.exports = class AuthService {
     constructor() {}
 
@@ -12,7 +13,9 @@ module.exports = class AuthService {
                     return user.email == authUser.email
                 })
                 if (matched.length >= 1) {
-                    resolve(authUser)
+                    if(matched[0].password == authUser.password)
+                    resolve(matched[0])
+                    else reject("Incorrect Passowrd")
                 }
                 else {
                     reject("User not found / Incorrect email")
