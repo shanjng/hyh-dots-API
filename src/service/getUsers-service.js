@@ -15,7 +15,7 @@ module.exports = class userService {
                 for (var i=0; i< users.length;i++){
                     if (users[i].verified){
                         if (users[i].followers_count >=filter.count){
-                            verifiedUsers.push(users[i].screen_name);
+                            verifiedUsers.push(users[i]);
 
                         }
                     }
