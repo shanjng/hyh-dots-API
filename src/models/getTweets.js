@@ -82,9 +82,6 @@ function findOG(tweets){
 
     }
     return searchOG(OG,tweets);
-    
-
-    
 }
 
 //searchOG is under testing and will not function either

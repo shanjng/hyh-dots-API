@@ -1,3 +1,4 @@
+// Necessary file to access Twitter API data
 var Twitter = require('twitter');
  
 var client = new Twitter({

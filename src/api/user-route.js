@@ -6,8 +6,7 @@ const userService = require('../service/getUsers-service');
 
 router.get("/users",(req,res)=>{
     userService.prototype.getVerifiedUsers().then((respond)=>{
-        debugger
-        console.log(respond);
+        // console.log(respond);
         res.status(200).json(respond);
     }).catch(err=>{
         console.log({"err": err})

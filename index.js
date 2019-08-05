@@ -34,7 +34,7 @@ app.use(logger)
 app.use("/trends",trends);
 app.use("/tweets",tweets);
 app.use('/users',users);
-app.use("/api/auth", require("./src/api/auth-routes")); // imports user router
+app.use("/api/auth", require("./src/api/auth-route")); // imports user router
 
 app.get('/*', function(req, res){
     res.json({err: 'Unsupported GET request'})
