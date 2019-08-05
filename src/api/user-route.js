@@ -4,9 +4,9 @@ const users = require('../models/getUsers');
 const userService = require('../service/getUsers-service');
 
 
-router.get("/users",(req,res)=>{
-    userService.prototype.getVerifiedUsers().then((respond)=>{
-        debugger
+router.post("/users",(req,res)=>{
+    console.log(req.body.topic);
+    userService.prototype.getVerifiedUsers(req.body).then((respond)=>{
         console.log(respond);
         res.status(200).json(respond);
     }).catch(err=>{

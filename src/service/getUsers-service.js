@@ -2,15 +2,20 @@ var Users = require('../models/getUsers');
 
 module.exports = class userService {
 
-    getVerifiedUsers(){
+    getVerifiedUsers(filter){
         return new Promise ((resolve, reject)=>{
-            Users.prototype.getUsers().then(users =>{
-                console.log("users",users);
+            if (filter.topic==""){
+                filter.topic = "fashion";
+            }
+            Users.prototype.getUsers(filter.topic).then(users =>{
                 let verifiedUsers=[];
+                if (!filter.count) {
+                    filter.count=10000;
+                }
                 for (var i=0; i< users.length;i++){
                     if (users[i].verified){
-                        if (users[i].followers_count >=100000){
-                            verifiedUsers.push(users[i]);
+                        if (users[i].followers_count >=filter.count){
+                            verifiedUsers.push(users[i].screen_name);
 
                         }
                     }
