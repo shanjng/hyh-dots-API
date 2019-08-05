@@ -11,12 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-app.use("/trends",trends);
-app.use("/tweets",tweets);
-app.use('/users',users);
-
-
 const logger = (req, res, next) => {
     console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}`);
     next();
@@ -40,6 +34,12 @@ app.use(express.urlencoded({extended: false}));
 
 app.use("/api/auth", require("./src/api/auth-routes")); // imports user router
 app.use("/api/user", require("./src/api/user-routes"))
+//Middleware execute:
+app.use(logger)
+app.use("/trends",trends);
+app.use("/tweets",tweets);
+app.use('/users',users);
+app.use("/api/auth", require("./src/api/auth-route")); // imports user router
 
 app.get('/*', function(req, res){
     res.json({err: 'Unsupported GET request'})

@@ -8,6 +8,7 @@ module.exports = class userService {
                 filter.topic = "fashion";
             }
             Users.prototype.getUsers(filter.topic).then(users =>{
+                // console.log("users",users);
                 let verifiedUsers=[];
                 if (!filter.count) {
                     filter.count=10000;
