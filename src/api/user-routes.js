@@ -12,4 +12,19 @@ router.get('/get', (req,res) => {
     .catch(err => res.status(400).send(err))
 })
 
+router.patch('/edit', (req,res) => {
+    userService.prototype.update(req.body)
+    .then(response => res.send(response))
+    .catch(err => res.status(400).send(err))
+})
+
+router.get('/:id', (req, res)=>{
+    userService.prototype.getById(req.params.id)
+    .then(result =>
+        res.send(result))
+    .catch(err =>{
+        res.status(400).send(err)
+    })
+})
+
 module.exports = router;
