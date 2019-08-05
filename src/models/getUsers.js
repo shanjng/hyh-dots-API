@@ -1,13 +1,16 @@
 const express = require("express");
 var client = require ("../auth/twit-auth");
 module.exports = class Users{
-    getUserByTopic(){
-        return 'https://api.twitter.com/1.1/users/search.json?q=fitness';
+    getUserByTopic(topic){
+        return 'https://api.twitter.com/1.1/users/search.json?q='+topic;
         }
+    userById(userId) {
+        return 'https://api.twitter.com/1.1/users/lookup.json?user_id='+userId;
+    }
     
-    getUsers(){
+    getUsers(topic){
         return new Promise((resolve, reject) => {
-            client.get(this.getUserByTopic(), function (error, response) {
+            client.get(this.getUserByTopic(topic), function (error, response) {
                 if (error) {
                     console.log("error:", error);
                     reject(error);
@@ -17,6 +20,21 @@ module.exports = class Users{
                 }
             });
         });
+    }
+
+    getUserByID(userId){
+        return new Promise((resolve, reject) => {
+            client.get(this.userById(userId), function (error, response) {
+                if (error) {
+                    console.log("error:", error);
+                    reject(error);
+                }
+                else {
+                    resolve(response);
+                }
+            });
+        });
+
     }
 }
     
