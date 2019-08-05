@@ -15,4 +15,15 @@ router.post("/users",(req,res)=>{
     })
 })
 
+router.post("/view",(req,res)=>{
+    console.log(req.body.topic);
+    users.prototype.getUserByID(req.body.userId).then((respond)=>{
+        console.log(respond);
+        res.status(200).json(respond);
+    }).catch(err=>{
+        console.log({"err": err})
+        res.status(400).json('err',err);
+    })
+})
+
 module.exports=router;

@@ -4,6 +4,7 @@ const trends = require("./src/api/trends-route")
 const tweets = require("./src/api/tweets-route")
 const cors = require("cors");
 const users =require('./src/api/user-route');
+const auth = require('./src/api/auth-route');
 
 //cors
 app.use(cors()); 
@@ -32,14 +33,13 @@ app.use(express.urlencoded({extended: false}));
 
 
 
-app.use("/api/auth", require("./src/api/auth-routes")); // imports user router
-app.use("/api/user", require("./src/api/user-routes"))
+app.use("/api/auth", auth); // imports user router
+// app.use("/api/user", require("src/api/user-route"))
 //Middleware execute:
 app.use(logger)
 app.use("/trends",trends);
 app.use("/tweets",tweets);
 app.use('/users',users);
-app.use("/api/auth", require("./src/api/auth-route")); // imports user router
 
 app.get('/*', function(req, res){
     res.json({err: 'Unsupported GET request'})
