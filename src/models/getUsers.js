@@ -7,10 +7,26 @@ module.exports = class Users{
     userById(userId) {
         return 'https://api.twitter.com/1.1/users/lookup.json?user_id='+userId;
     }
+    userById(location) {
+        return 'https://api.twitter.com/1.1/users/lookup.json?location='+location;
+    }
     
     getUsers(topic){
         return new Promise((resolve, reject) => {
             client.get(this.getUserByTopic(topic), function (error, response) {
+                if (error) {
+                    console.log("error:", error);
+                    reject(error);
+                }
+                else {
+                    resolve(response);
+                }
+            });
+        });
+    }
+    getByLoc(loc){
+        return new Promise((resolve, reject) => {
+            client.get(this.getUserByTopic(loc), function (error, response) {
                 if (error) {
                     console.log("error:", error);
                     reject(error);
