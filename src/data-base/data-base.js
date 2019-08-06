@@ -11,4 +11,8 @@ var pool = mysql.createPool({
 });
 
 module.exports = pool
-  
+
+// For all file imports of this file:
+// 1. Get Connection: pool.getConnection((err, conn) => {}) 
+// 2. Use Connection: conn.query()
+// 3. Release Connection: conn.release()
