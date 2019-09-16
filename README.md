@@ -3,7 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
 
 ## Running the Project on Your Local Machine
-Dowenload all dependencies by running `npm install`, then simply run `ng serve` via your terminal in the root directory of the project.
+*HYH-DOTS-API must be up and running before HYH-DOTS can be fully functional.
+
+Download all dependencies by running `npm install`, then simply run `ng serve` via your terminal in the root directory of the project.
 
 Add the `--open` flag afterwards the previous command to have the project automatically open in your browser.
 
